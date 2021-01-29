@@ -1,0 +1,21 @@
+@import 'reset.css';
+
+:root {
+    --principal: #2873bd;
+    --blue: #1e90ff;
+    --white: #ffffff;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p.message {
+    font-size: 1rem;
+    line-height: 1rem;
+    color: var(--principal);
+}
