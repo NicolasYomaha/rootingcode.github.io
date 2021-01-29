@@ -1,9 +1,10 @@
 @import 'reset.css';
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 :root {
-    --principal: #2873bd;
-    --blue: #1e90ff;
-    --white: #ffffff;
+    --brand_font: 'Montserrat';
+    --brand_color: #2873bd;
 }
 
 .container {
@@ -17,5 +18,6 @@
 p.message {
     font-size: 1rem;
     line-height: 1rem;
-    color: var(--principal);
+    color: var(--brand_color);
+    font-family: var(--brand_font), sans-serif;
 }
