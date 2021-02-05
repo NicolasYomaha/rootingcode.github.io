@@ -4,33 +4,578 @@
 
 :root {
     --brand_font_family: 'Montserrat';
-    --brand_color: #2873bd;
-    --brand_font_size: 12px;
+    --black: #000000;
+    --gray: #cccccc;
+    --white: #ffffff;
+    --brand: #0F4C81;
+    --brand_opacity_10: #0F4C8110;
+    --gray_opacity_80: #cccccc80;
 }
 
 * {
-    font-size: var(--brand_font_size);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.container {
-    height: 100vh;
+body {
+    overflow-x: hidden;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.presentation-wrp {
+    background: var(--brand_opacity_10);
     width: 100%;
+    height: 100vh;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.presentation-fix {
+    padding: .5rem;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 80px;
+    margin-bottom: .5rem;
+}
+
+.word:first-child {
+    margin-right: 1rem;
+}
+
+.tagline {
+    text-align: center;
+    color: var(--brand);
+}
+
+span {
+    font-size: 3rem;
+    transition: 1;
+    padding: .5rem;
+    color: var(--brand);
+}
+
+a {
+    color: var(--brand);
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 1rem;
+}
+
+/* ---------- Sound Controls ---------- */
+.controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--brand);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 50px;
+    z-index: 100;
+}
+
+.control {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.control.disabled {
+    color: var(--gray_opacity_80)
+}
+
+/* ---------- Animations Font ---------- */
+.animation {
+    animation-name: brand_font;
+    animation-duration: 2s;
+}
+
+@keyframes brand_font {
+    0%   {font-size: 3rem;}
+    20%  {font-size: 1.5rem;}
+    25%  {font-size: 3rem;}
+    30%  {font-size: 1.7rem;}
+    35% {font-size: 3rem;}
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        margin-bottom: .2rem;
+    }
+
+    .word:first-child {
+        margin-right: .5rem;
+    }
+
+    span {
+        font-size: 2rem;
+        padding: .3rem;
+    }
+
+    a {
+        font-size: .8rem;
+    }
+
+    @keyframes brand_font {
+        0%   {font-size: 2rem;}
+        20%  {font-size: 1.2rem;}
+        25%  {font-size: 2rem;}
+        30%  {font-size: 1.5rem;}
+        35% {font-size: 2rem;}
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .title {
+        margin-bottom: 0;
+    }
+
+    span {
+        font-size: 1.6rem;
+        padding: .1rem;
+    }
+
+    a {
+        font-size: .7rem;
+    }
+
+    @keyframes brandfont {
+        0%   {font-size: 1.6rem;}
+        20%  {font-size: 1rem;}
+        25%  {font-size: 1.6rem;}
+        30%  {font-size: 1.2rem;}
+        35% {font-size: 1.6rem;}
+    }
+}
+
+/* ---------- Skills ---------- */
+.skills-wrp {
+    width: calc(100% - 100px);
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--white);
+    min-height: 900px;
+}
+
+.skills-fix {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    position: relative;
+    animation-name: skills_wrp;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+
+@keyframes skills_wrp {
+    0%  {width: 60%; height: 60%;}
+    50%  {width: 55%; height: 55%;}
+    100%  {width: 60%; height: 60%;}
+}
+
+.skill1-wrp,
+.skill2-wrp,
+.skill3-wrp,
+.skill4-wrp,
+.skill5-wrp,
+.skill6-wrp,
+.skill7-wrp,
+.skill8-wrp {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    transform-origin: right bottom;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+}
+
+.skill1-wrp {
+    transform: rotate(45deg);
+    animation-name: skill1-wrp;
+}
+
+@keyframes skill1-wrp {
+    from {transform: rotate(45deg);}
+    to  {transform: rotate(405deg);}
+}
+
+.skill1 {
+    background: url('../images/html5.png');
+    background-size: 60%;
+    transform: rotate(-45deg);
+    animation-name: skill1_360;
+}
+
+@keyframes skill1_360 {
+    from {transform: rotate(-45deg);}
+    to  {transform: rotate(-405deg);}
+}
+
+.skill2-wrp {
+    transform: rotate(90deg);
+    animation-name: skill2-wrp;
+}
+
+@keyframes skill2-wrp {
+    from {transform: rotate(90deg);}
+    to  {transform: rotate(450deg);}
+}
+
+.skill2 {
+    background: url('../images/css3.png');
+    background-size: 45%;
+    transform: rotate(-90deg);
+    animation-name: skill2_360;
+}
+
+@keyframes skill2_360 {
+    from {transform: rotate(-90deg);}
+    to  {transform: rotate(-450deg);}
+}
+
+.skill3-wrp {
+    transform: rotate(135deg);
+    animation-name: skill3-wrp;
+}
+
+@keyframes skill3-wrp {
+    from {transform: rotate(135deg);}
+    to  {transform: rotate(495deg);}
+}
+
+.skill3 {
+    background: url('../images/js.png');
+    background-size: 215%;
+    transform: rotate(-135deg);
+    animation-name: skill3_360;
+}
+
+@keyframes skill3_360 {
+    from {transform: rotate(-135deg);}
+    to  {transform: rotate(-495deg);}
+}
+
+.skill4-wrp {
+    transform: rotate(180deg);
+    animation-name: skill4-wrp;
+}
+
+@keyframes skill4-wrp {
+    from {transform: rotate(180deg);}
+    to  {transform: rotate(540deg);}
+}
+
+.skill4 {
+    background: url('../images/vue.png');
+    background-size: 50%;
+    transform: rotate(-180deg);
+    animation-name: skill4_360;
+}
+
+@keyframes skill4_360 {
+    from {transform: rotate(-180deg);}
+    to  {transform: rotate(-540deg);}
+}
+
+.skill5-wrp {
+    transform: rotate(225deg);
+    animation-name: skill5-wrp;
+}
+
+@keyframes skill5-wrp {
+    from {transform: rotate(225deg);}
+    to  {transform: rotate(585deg);}
+}
+
+.skill5 {
+    background: url('../images/php.jpg');
+    background-size: 230%;
+    transform: rotate(-225deg);
+    animation-name: skill5_360;
+}
+
+@keyframes skill5_360 {
+    from {transform: rotate(-225deg);}
+    to  {transform: rotate(-585deg);}
+}
+
+.skill6-wrp {
+    transform: rotate(270deg);
+    animation-name: skill6-wrp;
+}
+
+@keyframes skill6-wrp {
+    from {transform: rotate(270deg);}
+    to  {transform: rotate(630deg);}
+}
+
+.skill6 {
+    background: url('../images/laravel.png');
+    background-size: 50%;
+    transform: rotate(-270deg);
+    animation-name: skill6_360;
+}
+
+@keyframes skill6_360 {
+    from {transform: rotate(-270deg);}
+    to  {transform: rotate(-635deg);}
+}
+
+.skill7-wrp {
+    transform: rotate(315deg);
+    animation-name: skill7-wrp;
+}
+
+@keyframes skill7-wrp {
+    from {transform: rotate(315deg);}
+    to  {transform: rotate(675deg);}
+}
+
+.skill7 {
+    background: url('../images/sass.png');
+    background-size: 170%;
+    transform: rotate(-315deg);
+    animation-name: skill7_360;
+}
+
+@keyframes skill7_360 {
+    from {transform: rotate(-315deg);}
+    to  {transform: rotate(-670deg);}
+}
+
+.skill8-wrp {
+    animation-name: skill8-wrp;
+}
+
+@keyframes skill8-wrp {
+    from {transform: rotate(0deg);}
+    to  {transform: rotate(360deg);}
+}
+
+.skill8 {
+    background: url('../images/postgresql.png');
+    background-size: 60%;
+    transform: rotate(-360deg);
+    animation-name: skill8_360;
+}
+
+@keyframes skill8_360 {
+    from {transform: rotate(0deg);}
+    to  {transform: rotate(-360deg);}
+}
+
+.skill1,
+.skill2,
+.skill3,
+.skill4,
+.skill5,
+.skill6,
+.skill7,
+.skill8 {
+    width: 130px; 
+    height: 130px; 
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    box-shadow: 0 0 3px -1px var(--black);
+}
+
+@media screen and (max-width: 1024px) {
+    .skill1,
+    .skill2,
+    .skill3,
+    .skill4,
+    .skill5,
+    .skill6,
+    .skill7,
+    .skill8 {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .skill1,
+    .skill2,
+    .skill3,
+    .skill4,
+    .skill5,
+    .skill6,
+    .skill7,
+    .skill8 {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .skills-wrp {
+        width: calc(100% - 20px);
+        padding: 10px;
+        min-height: 700px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .skills-wrp {
+        min-height: 600px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .skills-wrp {
+        min-height: 500px;
+    }
+
+    .skill1,
+    .skill2,
+    .skill3,
+    .skill4,
+    .skill5,
+    .skill6,
+    .skill7,
+    .skill8 {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .skills-wrp {
+        min-height: 400px;
+    }
+
+    .skill1,
+    .skill2,
+    .skill3,
+    .skill4,
+    .skill5,
+    .skill6,
+    .skill7,
+    .skill8 {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .skills-wrp {
+        min-height: 300px;
+    }
+
+    .skill1,
+    .skill2,
+    .skill3,
+    .skill4,
+    .skill5,
+    .skill6,
+    .skill7,
+    .skill8 {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* ---------- Music Control ---------- */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.music-control.disabled {
+    opacity: .5;
+}
+
+.disk {
+    background: url('../images/disk.svg');
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.music-control > .disk {
+    animation: disk_360 2s infinite linear;
+}
+
+.music-control.disabled > .disk {
+    animation: none;
+}
+
+@keyframes disk_360 {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(359deg);}
+}
+
+.music-note {
+    background: url('../images/music-note.svg');
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+}
+
+.under-contruction {    
+    color: red;
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: .5rem;
+}
+
+/* ---------- Contact ---------- */
+.contact-wrp {
+    width: calc(100% - 40px);
+    padding: 20px;
+    background: var(--brand);
+    color: var(--white);
+    display: flex;
     align-items: center;
 }
 
-.content {
-    width: 100%;
-    max-width: 500px;
-    font-family: var(--brand_font_family), sans-serif;
-    color: var(--brand_color);
-    padding: 1rem;
+.linkedin,
+.facebook {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-p {
-    font-size: 1rem;
-    line-height: 1rem;
-    text-align: center;
+.linkedin > a,
+.facebook > a {
+    color: var(--white);
+}
+
+.linkedin {
+    margin-left: 20px;
 }
